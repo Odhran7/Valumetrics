@@ -8,21 +8,21 @@
     <!-- Viewport Metadata -->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- Description Metadata-->
-    <meta name="description" content="Portfolio Website" />
+    <meta name="description" content="Valumetrics - Annual Reports For Everyone" />
     <!-- Author Metadata -->
-    <meta name="author" content="Aditya Vikram Singh" />
+    <meta name="author" content="Odhran Russell" />
     <!-- Keyword Metadata -->
     <meta
       name="keywords"
       content="Valumetrics Annual Report summariser 10k summariser "
     />
     <!-- Webpage Logo -->
-    <link rel="shortcut icon" href="./assets/img/favicon.ico" />
+    <link rel="shortcut icon" href="../static/assets/img/favicon.ico" />
     <!-- Webpage Title -->
     <title>Valumetrics</title>
 
     <!-- Import CSS: Main Stylesheet -->
-    <link rel="stylesheet" href="./assets/css/main.css" />
+    <link rel="stylesheet" href="../static/assets/css/main.css" />
   </head>
 
   <body>
@@ -54,19 +54,19 @@
 
     <!-- About Section -->
     <section id="about">
-      <!-- User Introduction-->
+
       <div class="user-details">
         <h1>About Us</h1>
         <picture>
           <source
             type="image/webp"
-            srcset="./assets/img/webp/Professional-Picture-Me.webp"
+            srcset="../static/assets/img/webp/Professional-Picture-Me.webp"
             alt="Professional Me"
             width="20%"
             style="border-radius: 50%"
           />
           <img
-            src="./assets/img/jpg/Professional-Picture-Me.jpg"
+            src="../static/assets/img/jpg/Professional-Picture-Me.jpg"
             alt="Professional Me"
             width="20%"
             style="border-radius: 50%"
@@ -75,13 +75,13 @@
         <picture>
           <source
             type="image/webp"
-            srcset="./assets/img/webp/PXL_20230228_221843408.PORTRAIT.webp"
+            srcset="../static/assets/img/webp/PXL_20230228_221843408.PORTRAIT.webp"
             alt="Professional Me"
             width="20%"
             style="border-radius: 50%"
           />
           <img
-            src="./assets/img/jpg/PXL_20230228_221843408.PORTRAIT.jpg"
+            src="../static/ssets/img/jpg/PXL_20230228_221843408.PORTRAIT.jpg"
             alt="Professional Me"
             width="20%"
             style="border-radius: 50%"
@@ -113,7 +113,6 @@
      
     </section>
 
-    <!-- Product Section -->
     <section id="projects">
       <div class="user-details">
         <h1>Our Product</h1>
@@ -132,16 +131,14 @@
           summarize annual reports</strong> and should theoretically provide much higher Rouge scores than any other model on the market.
       </p>
 
-      <!-- User Project #1: Personal Résumé Website -->
-
       <div class="user-details">
         <h1>MVP</h1>
       </div>
       <div class="user-projects">
         <div class="images-right">
           <picture>
-            <source type="image/webp" srcset="./assets/img/webp/bus.webp" alt="Graph" />
-            <img alt="Graph" src="./assets/img/jpg/bus.png" />
+            <source type="image/webp" srcset="../static/assets/img/webp/bus.webp" alt="Graph" />
+            <img alt="Graph" src="../static/assets/img/jpg/bus.png" />
           </picture>
         </div>
         <div class="contents" style="text-align: center">
@@ -154,12 +151,11 @@
         </div>
       </div>
 
-      <!-- User Project #2: Summer 2020 Project -->
       <div class="user-projects">
         <div class="images-left">
           <picture>
-            <source type="image/webp" srcset="./assets/img/webp/item1a.webp" alt="Item1a" />
-            <img alt="Item1a" src="./assets/img/jpg/item1a.png" />
+            <source type="image/webp" srcset="../static/assets/img/webp/item1a.webp" alt="Item1a" />
+            <img alt="Item1a" src="../static/assets/img/jpg/item1a.png" />
           </picture>
         </div>
         <div class="contents-right" style="text-align: center">
@@ -173,11 +169,10 @@
         </div>
       </div>
 
-      <!-- User Project #3: COVID-19 Tracker App -->
       <div class="user-projects">
         <div class="images-right">
           <picture>
-            <source type="image/webp" srcset="./assets/img/webp/graph.webp" alt="Graph" />
+            <source type="image/webp" srcset="../static/assets/img/webp/graph.webp" alt="Graph" />
             <img alt="Graph" src="graph.jpg" />
           </picture>
         </div>
@@ -193,23 +188,27 @@
         </div>
       </div>
 
-      <!-- Use Project #4: Valuto: Account Management System -->
       <div class="user-projects">
         <div class="images-left">
-          <div class="form__group" style="padding-top:65px" id="gohere">
-            <input type="text" class="form__input" id="name" placeholder="Please enter ticker" required="" />
-            <label for="name" class="form__label">Enter Ticker</label>
-          </div>
-        </div>
-        <div class="contents-right" style="text-align: center">
           <h3>Summarise Item 1A by ticker</h3>
           <p style="text-align: justify">
             At the moment the model only supports tickers that issue a 10k, so only American publically listed companies. We are in the process of adding a checkpoint
             for training on the 20f annual reports (the international standards)
           </p>
+          <div class="form__group" style="padding-top:65px" id="gohere">
+            <iframe name="dummyframe" id="dummyframe" style="display: none;"></iframe>
+            <form action="/" target="dummyframe" method="post" id="ticker-form">
+            <input type="text" class="form__input" id="name" name='ticker' placeholder="Please enter ticker" required="" />
+            <label for="name" class="form__label">Enter Ticker</label>
+            </form>
+          </div>
+        </div>
+        <div class="images-right">
+          <p style="text-align: justify">
+              {{ value }}
+          </p>
         </div>
       </div>
-
     </section>
 
     <footer class="footer">
@@ -219,10 +218,30 @@
     <!-- Import JS: Particles Theme -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <!-- Import JS: Sweet Scroll -->
-    <script src="./assets/js/sweet-scroll.min.js"></script>
+    <script src="../static/assets/js/sweet-scroll.min.js"></script>
     <!-- Import JS: Google Analytics -->
-    <script src="./assets/js/google-analytics.js"></script>
+    <script src="../static/assets/js/google-analytics.js"></script>
     <!-- Import JS: Main Script -->
-    <script src="./assets/js/main.js"></script>
+    <script src="../static/assets/js/main.js"></script>
+    <!-- Import Jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $(function() {
+        $('#ticker-form').submit(function(event) {
+          event.preventDefault(); // prevent the form from submitting normally
+          $.ajax({
+            type: 'POST',
+            url: '/',
+            data: $(this).serialize(), // serialize the form data
+            success: function(response) {
+              $('#gohere').html(response); // replace the form with the response
+            },
+            error: function() {
+              alert('An error occurred.'); // display an error message if the request fails
+            }
+          });
+        });
+      });
+      </script>
   </body>
 </html>

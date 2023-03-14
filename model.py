@@ -37,16 +37,18 @@ def getURL(ticker,year = 2023):
     urls_list = list(map(lambda x: x["linkToFilingDetails"], response["filings"]))
     
     print(year)
+
     if (len(urls_list) == 0):
         return getURL(ticker,year-1)
         
     else:
         url = urls_list[-1] 
-        
+        print(url)
         return url
     
 def getItem(url,item = '1A'):
     section_text = extractorApi.get_section(url, item, "html")
+    
     return section_text
 
 def convertToModelInput(text):
@@ -107,7 +109,7 @@ def renderReportOnPage(ticker):
             html_string += entry+"\n"
     return html_string
 
-print(renderReportOnPage("AAPL"))
+print(renderReportOnPage("MCD"))
 
 '''
 from test import magic

@@ -14,6 +14,8 @@ def home():
         
         # Pass in the text as variable var
         text = renderReportOnPage(ticker)
+
+        
         return text
     else:
         return render_template('index.html')

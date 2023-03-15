@@ -7,6 +7,7 @@ app = Flask(__name__)
 @app.route('/', methods=['POST', 'GET'])
 def home():
     from model import renderReportOnPage
+    
     if request.method=='POST':
         ticker = request.form['ticker']
         print(ticker)

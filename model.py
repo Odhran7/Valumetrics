@@ -1,6 +1,3 @@
-
-
-
 from sec_api import QueryApi
 from sec_api import ExtractorApi
 

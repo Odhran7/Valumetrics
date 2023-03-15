@@ -1,0 +1,34 @@
+from flask import Flask, request
+from flask import render_template
+
+application = Flask(__name__)
+
+@application.route('/', methods=['POST', 'GET'])
+def home():
+    from model import renderReportOnPage
+    
+    if request.method=='POST':
+        ticker = request.form['ticker']
+        print(ticker)
+        # Do something with the ticker
+        
+        # Pass in the text as variable var
+        text = renderReportOnPage(ticker)
+
+        
+        return text
+    else:
+        return render_template('index.html')
+
+'''
+@app.route('/', methods=['POST'])
+def submit_form():
+    email = request.form['email']
+    with open('emails.csv', 'a', newline='') as csvfile:
+        writer = csv.writer(csvfile)
+        writer.writerow([email])
+    return 'Thanks for submitting your email!'
+'''
+
+if __name__ == '__main__':
+    application.run()

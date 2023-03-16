@@ -21,15 +21,7 @@ def home():
     else:
         return render_template('index.html')
 
-'''
-@app.route('/', methods=['POST'])
-def submit_form():
-    email = request.form['email']
-    with open('emails.csv', 'a', newline='') as csvfile:
-        writer = csv.writer(csvfile)
-        writer.writerow([email])
-    return 'Thanks for submitting your email!'
-'''
+
 
 if __name__ == '__main__':
     app.run()

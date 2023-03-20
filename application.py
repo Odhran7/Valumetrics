@@ -1,26 +1,25 @@
-from flask import Flask, request
-from flask import render_template
+import flask
+import os
+ 
+application = flask.Flask(__name__)
 
-application = Flask(__name__)
+# Only enable Flask debugging if an env var is set to true
+application.debug = os.environ.get('FLASK_DEBUG') in ['true', 'True']
 
-@application.route('/', methods=['POST', 'GET'])
-def home():
-    from model import renderReportOnPage
-    
-    if request.method=='POST':
-        ticker = request.form['ticker']
-        print(ticker)
-        # Do something with the ticker
-        
-        # Pass in the text as variable var
-        text = renderReportOnPage(ticker)
+# Get application version from env
+app_version = os.environ.get('APP_VERSION')
 
-        
-        return text
-    else:
-        return render_template('index.html')
+# Get cool new feature flag from env
+enable_cool_new_feature = os.environ.get('ENABLE_COOL_NEW_FEATURE') in ['true', 'True']
 
-
-
+@application.route('/')
+def hello_world():
+    message = "Hello, world!"
+    return flask.render_template('index.html',
+                                  title=message,
+                                  flask_debug=application.debug,
+                                  app_version=app_version,
+                                  enable_cool_new_feature=enable_cool_new_feature)
+ 
 if __name__ == '__main__':
-    application.run()
+    application.run(host='0.0.0.0')

@@ -1,5 +1,7 @@
 import flask
 import os
+from sec10kAPI import renderReportOnPage
+
  
 application = flask.Flask(__name__)
 
@@ -12,14 +14,22 @@ app_version = os.environ.get('APP_VERSION')
 # Get cool new feature flag from env
 enable_cool_new_feature = os.environ.get('ENABLE_COOL_NEW_FEATURE') in ['true', 'True']
 
-@application.route('/')
-def hello_world():
-    message = "Hello, world!"
-    return flask.render_template('index.html',
-                                  title=message,
-                                  flask_debug=application.debug,
-                                  app_version=app_version,
-                                  enable_cool_new_feature=enable_cool_new_feature)
+@application.route('/',methods = ["POST","GET"])
+def home():
+    
+    if flask.request.method == "POST":
+        ticker = flask.request.form['ticker']
+        text = renderReportOnPage(ticker)
+
+        
+        return text
+    else:
+        return flask.render_template('index.html',
+                                    
+                                    flask_debug=application.debug,
+                                    app_version=app_version,
+                                    enable_cool_new_feature=enable_cool_new_feature,
+                                    )
  
 if __name__ == '__main__':
     application.run(host='0.0.0.0')
